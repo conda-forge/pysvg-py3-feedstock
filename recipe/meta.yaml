@@ -1,5 +1,5 @@
 {% set name = "pysvg-py3" %}
-{% set version = "0.2.2.post2" %}
+{% set version = "0.2.2.post3" %}
 {% set sha256  = "808c82f4231b5ed31eedf5d92ebef2477a0a028c54c847a561e88d88b73db362" %}
 
 package:
@@ -12,7 +12,7 @@ source:
   sha256:  {{ sha256 }}
 
 build:
-  number: 1000
+  number: 0
   skip: true  # [py27]
   script: python -m pip install --no-deps --ignore-installed .
 
