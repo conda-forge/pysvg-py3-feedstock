@@ -5,12 +5,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/p/pysvg-py3/pysvg-py3-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/p/pysvg-py3/pysvg-py3-{{ version }}.tar.gz
   sha256:  a1183aa5d89871298c11f25d28640edc3798b6ed1e2b2a95c30d35985d6431d0
 
 build:
   number: 8
-  skip: true  # [py27]
+  noarch: generic
+  skip: true  # [py=27]
   run_exports:
     - {{ pin_subpackage('pysvg-py3', max_pin="x.x") }}
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
@@ -19,6 +20,7 @@ requirements:
   host:
     - python 3.9.*
     - pip
+    - setuptools
   run:
     - python 3.9.*
 
@@ -38,5 +40,3 @@ about:
 extra:
   recipe-maintainers:
     - zachcp
-  additional-platforms:
-    - linux-aarch64
