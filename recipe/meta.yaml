@@ -10,6 +10,7 @@ source:
 
 build:
   number: 8
+  noarch: generic
   skip: true  # [py=27]
   run_exports:
     - {{ pin_subpackage('pysvg-py3', max_pin="x.x") }}
