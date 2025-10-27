@@ -10,17 +10,19 @@ source:
 
 build:
   number: 8
-  skip: true  # [py27]
+  noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - pysvg.core
     - pysvg.shape
